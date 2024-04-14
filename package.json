@@ -1,0 +1,32 @@
+{
+  "name": "fake-product-identification",
+  "version": "1.0.0",
+  "description": "project on blockchain",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "html5-qrcode": "^2.2.0",
+    "lite-server": "2.6"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.15",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "fs": "^0.0.1-security",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^8.0.0",
+    "path": "^0.12.7",
+    "truffle-contract": "^4.0.31",
+    "web3": "^4.6.0"
+  }
+}
