@@ -13,7 +13,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const { saveRedirectUrl } = require('./middleware.js');
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/fakeProductIdentification";
+const MONGO_URL = "mongodb+srv://sumit957602:GAezeicrv1JrwvDU@fakeproductidentificati.89wqfei.mongodb.net/?retryWrites=true&w=majority&appName=fakeProductIdentification";
 
 function asyncWrap(fn) {
     return function(req, res, next) {
