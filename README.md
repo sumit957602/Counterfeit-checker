@@ -1,4 +1,4 @@
-# Fake Product Identification using Blockchain
+# Counterfeit product checking using Blockchain
     
 ## setup process 
 
