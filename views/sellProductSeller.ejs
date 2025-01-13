@@ -172,7 +172,12 @@
             // console.log(`Scan result ${decodedText}`, decodedResult);
             document.getElementById("qr-reader-results").innerHTML =
               decodedText;
-            document.getElementById("productSN").value = decodedText;
+            var data = decodedText.split(",");
+            var productSN = data
+              .find((item) => item.includes("productSN"))
+              .split(":")[1]
+              .trim();
+            document.getElementById("productSN").value = productSN;
             //App.init(decodedText);
           }
         }

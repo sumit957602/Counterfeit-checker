@@ -117,7 +117,6 @@
 	<script src="js/sellProductManufacturer.js"></script>
 	<script src="https://unpkg.com/html5-qrcode"></script>
 	<script>
-		var decodedText = "Enter Product SN";
 		function docReady(fn) {
 			// see if DOM is already available
 			if (document.readyState === "complete"
@@ -141,14 +140,16 @@
 				audio.play();
 
 				setTimeout(function() {
+					// Parse the decoded text to extract productSN
+					var qrData = decodedText.split(',');
+					var productSN = qrData.find(data => data.includes('productSN')).split(':')[1].trim();
+
 					// console.log(`Scan result ${decodedText}`, decodedResult);
 					document.getElementById('qr-reader-results').innerHTML = decodedText;
-					document.getElementById("productSN").value = decodedText;
+					document.getElementById("productSN").value = productSN;
 					//App.init(decodedText);
 				}, 3000);
 			}
-
-			
 
 			var html5QrcodeScanner = new Html5QrcodeScanner(
 				"qr-reader", { fps: 10, qrbox: 250 });

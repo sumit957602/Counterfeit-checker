@@ -143,12 +143,15 @@
 	<script>
 	var src;
 	var qrValue;
-	async function fetchQR(){
-			qrValue = document.getElementById('productSN').value;
-			qrImage = document.querySelector(".qr-code");
-			qrImageResult = qrImage.querySelector("img");
-			src = qrImageResult.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
-			setTimeout(async function() {
+	async function fetchQR() {
+		const productSN = document.getElementById('productSN').value;
+		const productName = document.getElementById('productName').value;
+		const productBrand = document.getElementById('productBrand').value;
+		const qrData = `productSN: ${productSN}, productName: ${productName}, productBrand: ${productBrand}`;
+		qrImage = document.querySelector(".qr-code");
+		qrImageResult = qrImage.querySelector("img");
+		src = qrImageResult.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+		setTimeout(async function() {
 			downloadQrImg = document.getElementById('imgQR');
 			downloadQrBtn = document.getElementById('download');
 			downloadQrImg.removeAttribute('hidden');
