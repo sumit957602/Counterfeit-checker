@@ -133,19 +133,22 @@
 			var resultContainer = document.getElementById('qr-reader-results');
 			var lastResult, countResults = 0;
 			function onScanSuccess(decodedText, decodedResult) {
-				if (decodedText !== lastResult) {
-					++countResults;
-					lastResult = decodedText;
-					// Handle on success condition with the decoded message.
-					var audio = new Audio('beep.wav');
-					audio.play();
+				++countResults;
+				lastResult = decodedText;
+
+				// Handle on success condition with the decoded message.
+				var audio = new Audio('beep.wav');
+				audio.play();
+
+				setTimeout(function() {
 					// console.log(`Scan result ${decodedText}`, decodedResult);
 					document.getElementById('qr-reader-results').innerHTML = decodedText;
 					document.getElementById("productSN").value = decodedText;
 					//App.init(decodedText);
-
-				}
+				}, 3000);
 			}
+
+			
 
 			var html5QrcodeScanner = new Html5QrcodeScanner(
 				"qr-reader", { fps: 10, qrbox: 250 });

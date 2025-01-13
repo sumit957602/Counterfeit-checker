@@ -143,18 +143,17 @@
 	<script>
 	var src;
 	var qrValue;
-	function fetchQR(){
-		qrValue = document.getElementById('productSN').value;
-		qrImage = document.querySelector(".qr-code");
-		qrImageResult = qrImage.querySelector("img");
-		src = qrImageResult.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
-		
-
-		downloadQrImg = document.getElementById('imgQR');
-		downloadQrBtn = document.getElementById('download');
-		downloadQrImg.removeAttribute('hidden');
-		downloadQrBtn.removeAttribute('hidden');
-
+	async function fetchQR(){
+			qrValue = document.getElementById('productSN').value;
+			qrImage = document.querySelector(".qr-code");
+			qrImageResult = qrImage.querySelector("img");
+			src = qrImageResult.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+			setTimeout(async function() {
+			downloadQrImg = document.getElementById('imgQR');
+			downloadQrBtn = document.getElementById('download');
+			downloadQrImg.removeAttribute('hidden');
+			downloadQrBtn.removeAttribute('hidden');
+		}, 5000);
 	}
 
 	function saveImage(){
