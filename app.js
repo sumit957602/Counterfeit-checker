@@ -13,8 +13,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const { saveRedirectUrl } = require("./middleware.js");
 
-const MONGO_URL =
-  "mongodb+srv://sumit957602:GAezeicrv1JrwvDU@fakeproductidentificati.89wqfei.mongodb.net/?retryWrites=true&w=majority&appName=fakeProductIdentification";
+const MONGO_URL = "mongodb://localhost:27017";
 
 function asyncWrap(fn) {
   return function (req, res, next) {
@@ -268,7 +267,7 @@ app.post("/login", saveRedirectUrl, (req, res, next) => {
     if (!user) {
       req.flash(
         "error",
-        "Your Manufacturer ID and your account address do not match."
+        "Your Manufacturer Brand and your Blockchain Account does not match."
       );
       return res.redirect("/login");
     }

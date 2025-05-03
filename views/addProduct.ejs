@@ -92,10 +92,10 @@
 
 					<tr width="100%">
 						<td width="15" align="center">
-						<label for="name">Product Brand</label>
+						<label for="name">Manufacturer Brand Name</label>
 						</td>
 						<td width = "30%" >
-						<input class="form-control" id="productBrand" name="productBrand" type="text" />
+						<input class="form-control" id="productBrand" name="productBrand" type="text" value="<%= m_id %>" disabled/>
 						</td>
 
 						<td width="15%" align="center">
@@ -146,8 +146,8 @@
 	async function fetchQR() {
 		const productSN = document.getElementById('productSN').value;
 		const productName = document.getElementById('productName').value;
-		const productBrand = document.getElementById('productBrand').value;
-		const qrData = `productSN: ${productSN}, productName: ${productName}, productBrand: ${productBrand}`;
+		const ManufacturerBrand = document.getElementById('productBrand').value;
+		const qrData = `productSN: ${productSN}, productName: ${productName}, manufacturerBrand: ${ManufacturerBrand}`;
 		qrImage = document.querySelector(".qr-code");
 		qrImageResult = qrImage.querySelector("img");
 		src = qrImageResult.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
